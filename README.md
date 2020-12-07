@@ -28,4 +28,5 @@ life_calendar(my_birth_date, expected_years, special_dates)
 ```
 
 This will save the calendar as a PDF.
-![An example of the resulting image](https://github.com/kavir1698/LifeCalendar.jl/life_calendar.png)
+
+![An example of the resulting image](https://github.com/kavir1698/LifeCalendar.jl/blob/master/life_calendar.png?raw=true)
