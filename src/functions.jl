@@ -17,7 +17,7 @@ function create_df(birthdate, life_expectancy, special_periods)
 			:opacity => vcat(fill(0.99, age_in_weeks), fill(0.0, (all_weeks-age_in_weeks)))
 	))
 	df = df[week(birthdate)+1:end, :]
-	df = df[1:end-week(birthdate), :]
+	df = df[1:end-(52-week(birthdate)), :]
 	for (event, d) in special_periods
 		week_range = week_from_birth(d[1], birthdate):week_from_birth(d[2], birthdate)
 		df[week_range, :col] = event
