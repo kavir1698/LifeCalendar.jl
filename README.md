@@ -1,6 +1,6 @@
 # LifeCalendar.jl
 
-Create a plot from the weeks of your life and its important periods.
+Life Calendar: your life in weeks. See the weeks of your life and mark the important ones.
 
 ## Installation:
 
