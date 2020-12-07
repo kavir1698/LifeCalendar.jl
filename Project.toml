@@ -1,0 +1,9 @@
+name = "LifeCalendar"
+uuid = "92561a1c-9af7-4f05-9bc4-4ee611fbf681"
+authors = ["Ali R. Vahdati <arv.kavir@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
