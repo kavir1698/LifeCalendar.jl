@@ -3,6 +3,9 @@
 Create a plot from the weeks of your life and its important periods.
 
 ## Installation:
+
+Type this in a Julia REPL:
+
 ```julia
 ]add https://github.com/kavir1698/LifeCalendar.jl.git
 ```
