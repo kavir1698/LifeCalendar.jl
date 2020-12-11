@@ -28,11 +28,12 @@ end
 """
     life_calendar(birthdate::Date [, life_expectancy::Int=80, special_periods::Dict=Dict()])
 
-* birthdate: your birth date.
-* life_expectancy=80: how many years you expect to live.
-* special_periods: A dictionary that marks important periods or dates in your life. A key is a `String` the describes the period, and the value is an `Array` of two `Date`s, start and end.
+* `birthdate`: your birth date.
+* `life_expectancy`=80: how many years you expect to live.
+* `special_periods`: A dictionary that marks important periods or dates in your life. A key is a `String` the describes the period, and the value is an `Array` of two `Date`s, start and end.
+* `colorscheme`="category20". A color scheme name from https://vega.github.io/vega/docs/schemes/.
 """
-function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods::Dict=Dict())
+function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods::Dict=Dict(); colorscheme="category20")
   df = create_df(birthdate, life_expectancy, special_periods)
   p = df |> @vlplot(
       resolve = {scale = {y = "independent"}},
@@ -85,7 +86,7 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
       fill = {
         field = :col,
         legend = {title=nothing, labelFontSize=22},
-        scale = {scheme = "category20"}
+        scale = {scheme = colorscheme}
       },
       opacity = {
           field = :opacity,
