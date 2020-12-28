@@ -84,12 +84,12 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
         }
       },
       fill = {
-        field = :col,
+        field = "col:n",
         legend = {title=nothing, labelFontSize=22},
         scale = {scheme = colorscheme}
       },
       opacity = {
-          field = :opacity,
+          field = "opacity:q",
           legend = nothing
         }
     
