@@ -20,7 +20,7 @@ function create_df(birthdate, life_expectancy, special_periods)
 	df = df[1:end-(52-week(birthdate)), :]
 	for (event, d) in special_periods
 		week_range = week_from_birth(d[1], birthdate):week_from_birth(d[2], birthdate)
-		df[week_range, :col] = event
+		df[week_range, :col] .= event
 	end
 	return df
 end
@@ -55,7 +55,7 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
       mark = {:line, color="white"},
       title = {text="LIFE CALENDAR", fontSize=50, fontWeight="normal"},
       y = {
-        "age:o",
+        field = "age", type="ordinal",
         axis = {
           title = "← Year of your life",
           orient = "left",
@@ -65,7 +65,7 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
     ) + 
     @vlplot(mark = {:rect},
       x = {
-        "weeks:o",
+        field = "weeks", type="ordinal",
         axis = {
           title = "Week of the year →",
           orient = "top",
@@ -75,7 +75,7 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
           titleX = 150
         },
       },
-      y = {"year:n",
+      y = {field = "year", type="nominal",
         axis = {
           orient=:right,
           title = false,
@@ -84,12 +84,14 @@ function life_calendar(birthdate::Date, life_expectancy::Int=80, special_periods
         }
       },
       fill = {
-        field = "col:n",
+        field = "col",
+        type="nominal",
         legend = {title=nothing, labelFontSize=22},
         scale = {scheme = colorscheme}
       },
       opacity = {
-          field = "opacity:q",
+          field = "opacity",
+          type="quantitative",
           legend = nothing
         }
     
